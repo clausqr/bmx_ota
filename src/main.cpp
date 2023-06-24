@@ -46,6 +46,6 @@ void setup()
 void loop()
 {
   bmx_ota_handle();
-  bmx_webprint("Main loop from OTA program and serial skeleton v0.1.1!");
+  bmx_webprint("Main loop from OTA program and serial skeleton v0.1.2!");
   delay(2000);
 }
