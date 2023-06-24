@@ -1,6 +1,8 @@
 .pio
 .vscode
+lib/README
+include/README
 secrets.h
 src/test_ota.code-workspace
 esp32-ota-dev-skeleton.code-workspace
-.vscode/extensions.json
+
