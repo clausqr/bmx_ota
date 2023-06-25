@@ -13,6 +13,9 @@
 #include "bmx_spiffs.h"
 #include "bmx_webserver.h"
 
+// Add MPU9250 library
+#include <SparkFunMPU9250-DMP.h>
+
 AsyncWebServer server(80);
 
 #define LED LED_BUILTIN
