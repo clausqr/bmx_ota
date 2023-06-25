@@ -55,12 +55,16 @@ platformio run --target uploadfs
 ```
 You can customize your web interface by modifying the files in the `data` directory.
 
+For more information on uploading files to SPIFFS, see the [PlatformIO documentation](https://docs.platformio.org/en/latest/platforms/espressif32.html#uploading-files-to-file-system-spiffs).
+
 
 6. **Open Serial Monitor**: After successfully uploading the code, open the serial monitor in PlatformIO to view the ESP32's output. You should see the device connecting to your WiFi network.
 
 7. **Access the Web Serial Interface**: Once the ESP32 has connected to WiFi, open a web browser and enter the IP address shown in the serial monitor. The web serial interface will be available at "http://<IP>/webserial", allowing you to interact with the ESP32.
 
 8. **Make your own project!**: Now that you have a working setup, you can start building your own project. You can modify the code in the `src` directory to suit your needs. You can also add new files and libraries to the project as needed.
+
+Get started now! Just fork this repository and start building your own project!
 
 
 ## Contributing
