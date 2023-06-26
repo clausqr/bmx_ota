@@ -1,7 +1,3 @@
-#ifndef SECRETS_EXAMPLE
-#define SECRETS_EXAMPLE
-#ifndef SECRETS_EXAMPLE
-#define SECRETS_EXAMPLE
 #ifndef SECRETS
 #define SECRETS
 
@@ -23,9 +19,3 @@ const wifi_creds wifi_list[] =
 };
 
 #endif /* SECRETS */
-
-
-#endif /* SECRETS_EXAMPLE */
-
-
-#endif /* SECRETS_EXAMPLE */
