@@ -13,10 +13,100 @@
 #include "bmx_spiffs.h"
 #include "bmx_webserver.h"
 
-AsyncWebServer server(80);
 
 #define LED LED_BUILTIN
 #define HOSTNAME "bmx21"
+
+class BMX
+{
+
+public : 
+  BMX();
+  BMX(uint16_t port);
+  ~BMX();
+
+  void setup();
+  void loop();
+
+private:
+  uint16_t port;
+  AsyncWebServer* server;
+  void setup_wifi();
+  void setup_ota();
+  void setup_webserver();
+  void setup_webserial();
+  void setup_spiffs();
+};
+
+#define BMX_USE_WIFI true
+#define BMX_USE_OTA true
+#define BMX_USE_WEBSERVER true
+#define BMX_USE_WEBSERIAL true
+#define BMX_USE_SPIFFS true
+
+BMX::BMX(uint16_t port)
+{
+  this->port = port;
+  if (BMX_USE_WIFI)
+  {
+    setup_wifi();
+  }
+  if (BMX_USE_OTA)
+  {
+    setup_ota();
+  }
+  if (BMX_USE_WEBSERVER)
+  {
+    setup_webserver();
+  }
+  if (BMX_USE_WEBSERIAL)
+  {
+    setup_webserial();
+  }
+  if (BMX_USE_SPIFFS)
+  {
+    setup_spiffs();
+  }
+}
+
+BMX::~BMX()
+{
+}
+
+void BMX::setup_wifi()
+{
+  // Start wifi
+  bmx_wifi_connect_and_set_hostname_verbose(wifi_list, HOSTNAME);
+}
+
+void BMX::setup_ota()
+{
+  // Start OTA update service
+  bmx_ota_start();
+}
+
+void BMX::setup_webserver()
+{
+  // Start webserver
+  this->server = new AsyncWebServer(port);
+  this->server->begin();
+}
+
+void BMX::setup_webserial()
+{
+  // Setup webserial interface (access via http://<ip>/webserial)
+  bmx_webserial_start(this->server);
+}
+
+void BMX::setup_spiffs()
+{
+  // Start SPIFFS
+  bmx_spiffs_start();
+}
+
+
+
+BMX* bmx;
 
 void setup()
 {
@@ -24,23 +114,8 @@ void setup()
   Serial.begin(115200);
   Serial.println("Booting");
 
-  // Start wifi
-  bmx_wifi_connect_and_set_hostname_verbose(wifi_list, HOSTNAME);
+  bmx = new BMX(80);
 
-  // Start OTA update service
-  bmx_ota_start();
-
-  // Start SPIFFS
-  bmx_spiffs_start();
-
-  // Setup webserver
-  bmx_webserver_setup(&server);
-
-  // Setup webserial interface (access via http://<ip>/webserial)
-  bmx_webserial_start(&server);
-
-  // Start webserver
-  server.begin();
 }
 
 void loop()
