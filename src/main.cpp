@@ -1,18 +1,12 @@
 #include <Arduino.h>
 
-#define BMX_USE_WIFI true
-#define BMX_USE_OTA true
-#define BMX_USE_WEBSERVER true
-#define BMX_USE_WEBSERIAL true
-#define BMX_USE_SPIFFS true
-
 #include "secrets.h"
 
-
-#define LED LED_BUILTIN
-#define HOSTNAME "bmx21"
-
+#include "bmx_config.h"
 #include "bmx_main.h"
+
+
+#define HOSTNAME "bmx21"
 
 BMX* bmx;
 
