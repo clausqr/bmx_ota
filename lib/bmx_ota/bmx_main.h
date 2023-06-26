@@ -16,8 +16,8 @@ public :
   ~BMX();
 
   void setup();
-  void loop();
-
+  void handle();
+  
   void webprint(const char* msg);
 
 

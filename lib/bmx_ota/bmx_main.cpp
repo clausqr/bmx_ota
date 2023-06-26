@@ -86,3 +86,8 @@ void BMX::webprint(const char* msg)
 {
   bmx_webprint(msg);
 }
+
+void BMX::handle()
+{
+  bmx_ota_handle();
+}

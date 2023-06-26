@@ -22,7 +22,7 @@ void setup()
 
 void loop()
 {
-  //bmx_ota_handle();
+  bmx->handle();
 
   float yaw = 0.0f;
   float pitch = 0.0f;
