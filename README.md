@@ -60,11 +60,20 @@ For more information on uploading files to SPIFFS, see the [PlatformIO documenta
 
 6. **Open Serial Monitor**: After successfully uploading the code, open the serial monitor in PlatformIO to view the ESP32's output. You should see the device connecting to your WiFi network.
 
-7. **Access the Web Serial Interface**: Once the ESP32 has connected to WiFi, open a web browser and enter the IP address shown in the serial monitor. The web serial interface will be available at "http://<IP>/webserial", allowing you to interact with the ESP32.
+7. **Access the Web Serial Interface**: Once the ESP32 has connected to WiFi, open a web browser and enter the IP address shown in the serial monitor. The web serial interface will be available at "http://<ESP32_IP_ADDRESS>/webserial", allowing you to interact with the ESP32.
 
 8. **Make your own project!**: Now that you have a working setup, you can start building your own project. You can modify the code in the `src` directory to suit your needs. You can also add new files and libraries to the project as needed.
 
-Get started now! Just fork this repository and start building your own project!
+9   **OTA Updates**: To deploy new versions of your code wirelessly, simply run the following command:
+
+```shell
+platformio run --target upload --upload-port <ESP32_IP_ADDRESS>
+```
+
+where `<ESP32_IP_ADDRESS>` is the IP address of your ESP32 device. The new code will be uploaded over the air, and the device will automatically restart to run the updated code.
+
+
+Get started now! Just fork this repository (or use it as template) and start building your own project!
 
 
 ## Contributing
