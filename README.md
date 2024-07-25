@@ -1,6 +1,6 @@
 # BMX_OTA ESP32 Project Starter Repository
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![](https://img.shields.io/badge/PlatformIO-PIO-blue)](https://platformio.org/)
 [![](https://img.shields.io/badge/ESP32-ESP32-blue)](https://www.espressif.com/en/products/socs/esp32/overview)
 
@@ -64,7 +64,7 @@ For more information on uploading files to SPIFFS, see the [PlatformIO documenta
 
 8. **Make your own project!**: Now that you have a working setup, you can start building your own project. You can modify the code in the `src` directory to suit your needs. You can also add new files and libraries to the project as needed.
 
-9   **OTA Updates**: To deploy new versions of your code wirelessly, simply run the following command:
+9. **OTA Updates**: To deploy new versions of your code wirelessly, simply run the following command:
 
 ```shell
 platformio run --target upload --upload-port <ESP32_IP_ADDRESS>
