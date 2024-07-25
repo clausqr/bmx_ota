@@ -73,7 +73,15 @@ If you would like to contribute to the BMX_OTA ESP32 Project Starter Repository,
 
 ## License
 
-The BMX_OTA ESP32 Project Starter Repository is licensed under the [MIT License](LICENSE). Feel free to modify and adapt the codebase to suit your project's needs.
+This project includes the awesome [WebSerial](https://github.com/ayushsharma82/WebSerial) library, which is licensed under the AGPL License, so the combined work is subject to the terms of the AGPL License:
+
+This project includes software licensed under the Affero General Public License v3.0 (AGPL-3.0). 
+
+The combined work is subject to the terms of the AGPL-3.0. You can find the source code and license terms for the AGPL-3.0 component at [[link to source code](https://github.com/clausqr/bmx_ota)].
+
+Your contributions and any modifications to this project must also be made available under the AGPL-3.0.
+
+
 
 ## Acknowledgements
 
