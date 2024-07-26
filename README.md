@@ -43,14 +43,16 @@ platformio run --target upload
 After the first time you upload the code to the device, you can use OTA updates to deploy new versions of your code wirelessly. To do this, run the following command:
 
 ```shell
-platformio run --target upload --upload-port <ESP32_IP_ADDRESS>
+EXPORT ESP32_IP_ADDRESS=<YOUR_ESP32_IP_ADDRESS>
+platformio run --target upload --upload-port $ESP32_IP_ADDRESS
 ```
 
-where `<ESP32_IP_ADDRESS>` is the IP address of your ESP32 device. You can find the IP address in the serial monitor after the device has connected to WiFi.
+where `$ESP32_IP_ADDRESS` is the IP address of your ESP32 device. You can find the IP address in the serial monitor after the device has connected to WiFi.
 
 5. **Build and Upload SPIFFS**: The BMX_OTA ESP32 Project Starter Repository uses SPIFFS to store the web interface files. To upload these files to your ESP32 device, run the following command:
 
 ```shell
+platformio run --target buildfs 
 platformio run --target uploadfs
 ```
 You can customize your web interface by modifying the files in the `data` directory.
@@ -60,20 +62,31 @@ For more information on uploading files to SPIFFS, see the [PlatformIO documenta
 
 6. **Open Serial Monitor**: After successfully uploading the code, open the serial monitor in PlatformIO to view the ESP32's output. You should see the device connecting to your WiFi network.
 
-7. **Access the Web Serial Interface**: Once the ESP32 has connected to WiFi, open a web browser and enter the IP address shown in the serial monitor. The web serial interface will be available at "http://<ESP32_IP_ADDRESS>/webserial", allowing you to interact with the ESP32.
+7. **Access the Web Serial Interface**: Once the ESP32 has connected to WiFi, open a web browser and enter the IP address shown in the serial monitor. The web serial interface will be available at "http://$ESP32_IP_ADDRESS/webserial", allowing you to interact with the ESP32.
 
 8. **Make your own project!**: Now that you have a working setup, you can start building your own project. You can modify the code in the `src` directory to suit your needs. You can also add new files and libraries to the project as needed.
 
 9. **OTA Updates**: To deploy new versions of your code wirelessly, simply run the following command:
 
 ```shell
-platformio run --target upload --upload-port <ESP32_IP_ADDRESS>
+platformio run --target upload --upload-port $ESP32_IP_ADDRESS
 ```
 
-where `<ESP32_IP_ADDRESS>` is the IP address of your ESP32 device. The new code will be uploaded over the air, and the device will automatically restart to run the updated code.
+where `$ESP32_IP_ADDRESS` is the IP address of your ESP32 device. The new code will be uploaded over the air, and the device will automatically restart to run the updated code.
 
 
 Get started now! Just fork this repository (or use it as template) and start building your own project!
+## Customizing the Project
+
+1. In the `src` directory, you will find the main code file `main.cpp`. This file contains the setup and loop functions for the ESP32 device.
+2. Main modules to the `bmx_ota` ecosystem are configured in the `bmx_config.h` file. You can modify this file to customize the behavior of the OTA updates, WiFi connection, and other features, by modifying their source code in the `lib` directory:
+   1. `bmx_ota`: This module is responsible for handling the OTA updates. Don't touch unless you know what you are doing.
+   2. `bmx_wifi`: This module is responsible for handling the WiFi connection. You can modify the WiFi settings in the `bmx_config.h` file.
+   3. `bmx_webserial`: This module is responsible for handling the web serial interface. It is provided by the [WebSerial](http://github.com/ayushsharma82/WebSerial) library. 
+   4. `bmx_webserver`: This module is responsible for handling the web server. You can modify the web server settings in the `bmx_config.h` file, the routes under `bmx_weberver.cpp` and the actual files being served under the `data` directory. Remember to run `platformio run --target buildfs` and `platformio run --target uploadfs $ESP32_IP_ADDRESS` to upload the files to SPIFFS.
+3. 
+4. You can add new files to the project by creating them in the `src` directory and including them in the `platformio.ini` file.
+5. 
 
 
 ## Contributing
