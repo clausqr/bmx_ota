@@ -67,6 +67,7 @@ void BMX::setup_webserver()
 {
   // Start webserver
   this->server = new AsyncWebServer(port);
+  bmx_webserver_setup(this->server);
   this->server->begin();
 }
 
