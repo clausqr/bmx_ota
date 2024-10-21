@@ -18,7 +18,7 @@
 #define BMX_USE_SPIFFS false
 
 // Servo
-#define BMX_ESP32_SERVO true
+#define BMX_ESP32_SERVO false
 #define SERVO_PWM_UPDATE_TIMESTEP 100
 #include "bmx_servo_config.h"
 
@@ -30,11 +30,10 @@
 #define BMX_USE_LOGGING true
 #include "bmx_logger.h"
 
-#define BMX_USE_LOGGING true
-#define BMX_LOG_SYSLOG_SERVER "192.168.0.111"
+#define BMX_LOG_SYSLOG_SERVER "192.168.0.114"
 #define BMX_LOG_SYSLOG_PORT 514
 #define BMX_LOG_SYSLOG_HOSTNAME "ESP32"
-#define BMX_LOG_SYSLOG_APPNAME "monoceros_flightcontroller"
+#define BMX_LOG_SYSLOG_APPNAME "bmx_ota"
 #define BMX_LOG_SYSLOG_TAG "BMX"
 
 BMXLogger::BMXLoggerConfig logger_config = 

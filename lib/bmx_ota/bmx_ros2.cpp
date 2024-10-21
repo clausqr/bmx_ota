@@ -62,7 +62,7 @@ BMXROS2::BMXROS2()
     RCCHECK(rclc_support_init(&support, 0, NULL, &allocator));
 
     // create node
-    RCCHECK(rclc_node_init_default(&node, "monoceros_flightcontroller", "", &support));
+    RCCHECK(rclc_node_init_default(&node, "bmx_ota", "", &support));
 
     // create publisher
     RCCHECK(rclc_publisher_init_default(
@@ -94,7 +94,7 @@ void BMXROS2::setup_transport()
 
     Serial.print("Setting up Micro-ROS transport...");
 
-    IPAddress agent_ip(192, 168, 0, 111);
+    IPAddress agent_ip(192, 168, 0, 114);
     size_t agent_port = 8888;
 
     char ssid[] = "";
