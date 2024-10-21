@@ -88,6 +88,13 @@ Get started now! Just fork this repository (or use it as template) and start bui
 4. You can add new files to the project by creating them in the `src` directory and including them in the `platformio.ini` file.
 5. 
 
+## Running microros
+
+microros is also included. Run the host component with
+
+```bash
+docker run -it --rm --net=host microros/micro-ros-agent:humble udp4 --port 8888 -v 6   
+```
 
 ## Contributing
 
