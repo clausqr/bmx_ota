@@ -22,7 +22,7 @@ void loop()
   // Handle BMX
   bmx->handle();
 
-  logger->log(BMXLogger::LogLevel::ERROR, "lemon apple pear");
+  // logger->log(BMXLogger::LogLevel::ERROR, "lemon apple pear");
 
-  delay(500);
+  delay(100);
 }
