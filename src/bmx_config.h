@@ -15,7 +15,7 @@
 #define BMX_USE_WEBSERIAL false
 
 // SPIFFS
-#define BMX_USE_SPIFFS false
+#define BMX_USE_SPIFFS true
 
 // Servo
 #define BMX_ESP32_SERVO false

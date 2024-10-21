@@ -3,6 +3,7 @@
 
 #include <bmx_wifi.h>
 #include <ESP32Ping.h>
+#include <ESPmDNS.h>
 
 bool bmx_wifi_connect(const wifi_creds *wifi_list)
 {
@@ -99,6 +100,17 @@ void bmx_wifi_connect_and_set_hostname_verbose(const wifi_creds *wifi_list, cons
     {
         Serial.println("ERROR");
     }
+
+    // Initialize mDNS
+    if (!MDNS.begin(hostname))
+    { // Set the hostname
+        Serial.println("Error setting up MDNS responder!");
+        while (1)
+        {
+            delay(1000);
+        }
+    }
+    Serial.println("mDNS responder started");
 
     Serial.println("Ready");
     Serial.print("IP address: ");
