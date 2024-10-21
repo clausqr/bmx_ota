@@ -85,6 +85,13 @@ Get started now! Just fork this repository (or use it as template) and start bui
    3. `bmx_webserial`: This module is responsible for handling the web serial interface. It is provided by the [WebSerial](http://github.com/ayushsharma82/WebSerial) library. 
    4. `bmx_webserver`: This module is responsible for handling the web server. You can modify the web server settings in the `bmx_config.h` file, the routes under `bmx_weberver.cpp` and the actual files being served under the `data` directory. Remember to run `platformio run --target buildfs` and `platformio run --target uploadfs $ESP32_IP_ADDRESS` to upload the files to SPIFFS.
 
+## Running microros
+
+microros is also included. Run the host component with
+
+```bash
+docker run -it --rm --net=host microros/micro-ros-agent:humble udp4 --port 8888 -v 6   
+```
 
 ## Contributing
 
