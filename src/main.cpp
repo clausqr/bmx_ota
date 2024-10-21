@@ -1,18 +1,10 @@
 #include <Arduino.h>
-
-// WiFi credentials
-#include "secrets.h"
-
-// BMX Config and include
-#include "bmx_config.h"
-#include "bmx_main.h"
-
-// hostname to use for mDNS
-#define HOSTNAME "bmx21"
+#include "bmx_config.h" // BMX Configuration
+#include "bmx_main.h"   // BMX Main
 
 // Create a new BMX instance
-BMX* bmx;
-
+BMX *bmx;
+extern BMXLogger* logger;
 
 void setup()
 {
@@ -21,7 +13,8 @@ void setup()
   Serial.println("Booting");
 
   // Start BMX
-  bmx = new BMX(wifi_list, HOSTNAME, 80);
+  bmx = new BMX(config); // config is defined in bmx_config.h
+
 }
 
 void loop()
@@ -29,11 +22,7 @@ void loop()
   // Handle BMX
   bmx->handle();
 
-  // main loop, implement your application here!
+  logger->log(BMXLogger::LogLevel::ERROR, "lemon apple pear");
 
-  // print something to the webserial interface under http://<hostname>.local/webserial
-  bmx->webprint("Hello World!");
-  
-  // wait a bit
   delay(500);
 }
