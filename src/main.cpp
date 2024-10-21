@@ -13,7 +13,7 @@ void setup()
   Serial.println("Booting");
 
   // Start BMX
-  bmx = new BMX(config); // config is defined in bmx_config.h
+  bmx = new BMX(default_config); // default_config is defined in bmx_config.h
 
 }
 

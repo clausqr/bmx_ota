@@ -23,7 +23,7 @@
 #include "bmx_servo_config.h"
 
 // ROS2
-#define BMX_ROS2 true
+#define BMX_USE_ROS2 true
 #include "bmx_ros2_config.h"
 
 // Logging
@@ -60,7 +60,7 @@ BMXLogger::BMXLoggerConfig logger_config =
 };
 
 // Condense into a single configuration struct
-BMXConfig config = 
+BMXConfig default_config = 
 {
     .wifi_list = wifi_list,
     .hostname = HOSTNAME,
@@ -71,7 +71,7 @@ BMXConfig config =
     .use_webserial = BMX_USE_WEBSERIAL,
     .use_spiffs = BMX_USE_SPIFFS,
     .use_esp32_servo = BMX_ESP32_SERVO,
-    .use_ros2 = BMX_ROS2,
+    .use_ros2 = BMX_USE_ROS2,
     .use_logging = BMX_USE_LOGGING,
     .servo_pwm_update_timestep = SERVO_PWM_UPDATE_TIMESTEP,
     .logger_config = logger_config
